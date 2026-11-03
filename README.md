@@ -91,3 +91,101 @@ Kali Linux is a Debian-based Linux distribution designed for penetration testing
 ### Kali Linux Installed Successfully
 
 ![Kali Linux Installed](02-kali-linux-installed.png)
+
+# 🎯 Step 3: Download and Install Metasploitable 2
+
+## 📌 Description
+
+I downloaded and imported Metasploitable 2 into VMware Workstation as an intentionally vulnerable target machine for controlled security testing.
+
+Metasploitable 2 is a vulnerable Linux virtual machine developed by Rapid7. It is used to practice penetration testing, vulnerability assessment, and security testing in an isolated lab environment.
+
+## 🛠️ Installation Steps
+
+1. Open the [Official Metasploitable 2 Documentation](https://docs.rapid7.com/metasploit/metasploitable-2/).
+2. Follow the download instructions.
+3. Download the Metasploitable 2 archive.
+4. Extract the downloaded archive.
+5. Open VMware Workstation.
+6. Select **File → Open**.
+7. Browse to the extracted Metasploitable 2 folder.
+8. Select the `.vmx` file.
+9. Click **Open**.
+10. Start the Metasploitable 2 virtual machine.
+11. Wait for the login screen to appear.
+
+## 🔐 Default Login Credentials
+
+| Username | Password |
+|----------|----------|
+| `msfadmin` | `msfadmin` |
+
+### Metasploitable 2 Installed Successfully
+
+![Metasploitable 2 Installed](03-metasploitable-installed.png)
+
+# 🌐 Step 4: Configure VMware Host-Only Network
+
+## 📌 Description
+
+I configured VMware Host-Only networking for Kali Linux and Metasploitable 2 to create an isolated virtual lab environment. This allows both virtual machines to communicate privately for the Metasploit Bind and Reverse Shell practical.
+
+## 🎯 Objective
+
+- Create an isolated virtual network.
+- Connect Kali Linux and Metasploitable 2.
+- Enable private communication between both machines.
+- Secure the vulnerable target machine from external networks.
+
+## 🛠️ Configuration Steps
+
+### 1. Configure VMware Virtual Network
+
+1. Shut down both virtual machines.
+2. Open VMware Workstation.
+3. Click **Edit → Virtual Network Editor**.
+4. Select `VMnet1`.
+5. Choose **Host-Only** network type.
+6. Enable the local DHCP service if required.
+7. Click **Apply → OK**.
+
+### 2. Configure Kali Linux Network
+
+1. Select Kali Linux in VMware.
+2. Click **Edit Virtual Machine Settings**.
+3. Select **Network Adapter**.
+4. Choose **Custom: Specific virtual network**.
+5. Select `VMnet1`.
+6. Click **OK**.
+
+### 3. Configure Metasploitable 2 Network
+
+1. Select Metasploitable 2 in VMware.
+2. Click **Edit Virtual Machine Settings**.
+3. Select **Network Adapter**.
+4. Choose **Custom: Specific virtual network**.
+5. Select `VMnet1`.
+6. Click **OK**.
+
+## 💻 Network Verification Commands
+
+### On Kali Linux
+
+```bash
+ip addr
+```
+
+### On Metasploitable 2
+
+```bash
+ifconfig
+```
+
+### Test Connectivity from Kali Linux
+
+```bash
+ping -c 4 <METASPLOITABLE-IP>
+```
+Replace <METASPLOITABLE-IP> with the actual IP address of Metasploitable 2.
+
+![Configure VMware Host-Only Network](04-vmware-host-only-network.png)
