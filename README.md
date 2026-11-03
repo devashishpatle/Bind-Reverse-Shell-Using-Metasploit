@@ -65,3 +65,29 @@ I installed VMware Workstation Pro to create a virtual lab environment for the *
 ### VMware Workstation Installed Successfully
 
 ![VMware Installed](01-vmware-installed.png)
+
+# 🖥️ Step 2: Download and Install Kali Linux
+
+## 📌 Description
+
+I downloaded the prebuilt Kali Linux VMware image and imported it into VMware Workstation to use as my security testing machine for the **Metasploit Bind and Reverse Shell Project**.
+
+Kali Linux is a Debian-based Linux distribution designed for penetration testing, ethical hacking, and security auditing.
+
+## 🛠️ Installation Steps
+
+1. Open the official [Kali Linux Download Page](https://www.kali.org/get-kali/).
+2. Select **Virtual Machines**.
+3. Find the VMware image.
+4. Download the 64-bit VMware archive.
+5. Extract the downloaded archive using 7-Zip or another archive utility.
+6. Open VMware Workstation.
+7. Click **Open a Virtual Machine**.
+8. Browse to the extracted Kali Linux folder.
+9. Select the `.vmx` file and click **Open**.
+10. Start the Kali Linux virtual machine.
+11. Wait for Kali Linux to boot successfully.
+
+### Kali Linux Installed Successfully
+
+![Kali Linux Installed](02-kali-linux-installed.png)
