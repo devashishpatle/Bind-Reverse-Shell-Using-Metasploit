@@ -189,3 +189,349 @@ ping -c 4 <METASPLOITABLE-IP>
 Replace <METASPLOITABLE-IP> with the actual IP address of Metasploitable 2.
 
 ![Configure VMware Host-Only Network](04-vmware-host-only-network.png)
+
+# 🚀 Step 5: Open Metasploit Framework
+
+## 📌 Description
+
+I opened the Metasploit Framework console in Kali Linux and verified its installation, framework version, and available commands.
+
+## 🛠️ Steps
+
+1. Open Kali Linux.
+2. Open Terminal.
+3. Execute the command:
+
+```bash
+msfconsole
+```
+
+4. Wait for the Metasploit console to start.
+5. Check the framework version:
+
+```bash
+version
+```
+
+6. View the available commands:
+
+```bash
+help
+```
+
+7. Exit the Metasploit console:
+
+```bash
+exit
+```
+
+### Metasploit Framework Console
+
+![Open Metasploit Framework](05-metasploit-console.png)
+
+# ⚙️ Step 6: Study MSFvenom Payload
+
+## 📌 Description
+
+I explored the MSFvenom utility in Kali Linux and studied its payload options, supported formats, architectures, and basic functionality.
+
+MSFvenom is a Metasploit Framework tool used for generating payloads during authorized security testing.
+
+## 🎯 Objectives
+
+- Understand MSFvenom.
+- Explore available command-line options.
+- Study different payload types.
+- Understand supported output formats.
+- Learn supported architectures.
+- Understand Bind TCP and Reverse TCP concepts.
+
+## 🛠️ Practical Steps
+
+### 1. Open Kali Linux
+Start Kali Linux in VMware Workstation.
+
+### 2. Open Terminal
+Launch the Kali Linux terminal.
+
+### 3. Display MSFvenom Help
+
+Execute the following command:
+
+```bash
+msfvenom --help
+```
+
+![Study MSFvenom Payload](06-msfvenom-help.png)
+
+# 🎯 Step 7: Study Multi/Handler and Reverse TCP
+
+## 📌 Description
+
+I studied the Metasploit Multi/Handler module and the working principle of Reverse TCP connections in an authorized penetration-testing environment.
+
+## 🎯 Objectives
+
+- Understand Multi/Handler.
+- Learn about listening ports.
+- Understand Reverse TCP connections.
+- Study the role of the testing machine.
+- Understand how a handler manages compatible connections.
+
+## 📚 Concepts Studied
+
+### 1. What is Multi/Handler?
+
+Multi/Handler is a Metasploit module used to listen for and manage incoming compatible payload connections.
+
+### 2. What is a Listening Port?
+
+A listening port is a network port that waits for incoming connections.
+
+Example: Port 4444.
+
+### 3. What is Reverse TCP?
+
+Reverse TCP is a connection method in which the target machine initiates a TCP connection towards the testing machine.
+
+### 4. Role of Testing Machine
+
+Kali Linux acts as the testing machine. It is used to run Metasploit and monitor incoming connections.
+
+### 5. How Does a Handler Work?
+
+The handler waits for incoming compatible connections and manages the associated sessions.
+
+## 🔄 Reverse TCP Working Process
+
+1. The testing machine prepares a listener.
+2. The target initiates a TCP connection.
+3. The handler receives a compatible connection.
+4. Metasploit manages the established session.
+
+## 💻 Practical Commands
+
+### Start Metasploit
+
+```bash
+msfconsole
+```
+
+### Select Multi/Handler
+
+```bash
+use exploit/multi/handler
+```
+
+### View Available Options
+
+```bash
+show options
+```
+
+### Multi/Handler Concepts
+
+![Study Multi/Handler and Reverse TCP](07-multi-handler-concepts.png)
+
+# 🔗 Step 8: Study Bind TCP
+
+## 📌 Description
+
+I studied Bind TCP communication and understood how a target-side listening service receives an incoming connection from a testing machine.
+
+## 🎯 Objectives
+
+- Understand Bind TCP communication.
+- Learn about listening ports.
+- Understand the role of the target machine.
+- Study how the testing machine initiates a connection.
+- Compare Bind TCP with Reverse TCP.
+
+## 📚 Concepts Studied
+
+### 1. What is Bind TCP?
+
+Bind TCP is a communication technique in which the target machine listens on a specific port and waits for an incoming TCP connection.
+
+### 2. What is a Listening Port?
+
+A listening port is a network port that waits for incoming connections from other devices.
+
+### 3. Role of Target Machine
+
+The target machine acts as a server and listens for incoming connections on a specific port.
+
+### 4. Role of Testing Machine
+
+The testing machine acts as a client and initiates a connection to the target machine.
+
+### 5. Bind TCP vs Reverse TCP
+
+| Bind TCP | Reverse TCP |
+|---|---|
+| Target machine listens | Testing machine listens |
+| Testing machine initiates connection | Target initiates connection |
+| Uses target-side listening port | Uses testing-side listening port |
+| Incoming connection to target | Outgoing connection from target |
+
+## 💻 Practical Commands
+
+### Check Target IP Address
+
+```bash
+ifconfig
+```
+
+### Check Listening TCP Ports
+
+```bash
+netstat -tln
+```
+
+### Check Kali Linux IP Address
+```bash
+ip addr
+```
+
+### Bind TCP Concept
+
+![Study Bind TCP](08-bind-tcp-concept.png)
+
+# 🖥️ Step 9: Study Meterpreter
+
+## 📌 Description
+
+I studied Meterpreter and its capabilities for system information, process analysis, network information, file system exploration, and session management.
+
+Meterpreter is an advanced Metasploit payload that provides an interactive session for authorized security testing.
+
+## 🎯 Objectives
+
+- Understand Meterpreter.
+- Study system information.
+- Learn about running processes.
+- Understand network information.
+- Study file system operations.
+- Understand session management.
+
+## 📚 Meterpreter Features
+
+| Feature | Purpose |
+|---|---|
+| System Information | Understand operating system details |
+| Process Information | Understand running processes |
+| Network Information | Understand network interfaces |
+| File System | Understand files and directories |
+| Session Management | Understand session handling |
+
+## 💻 Important Meterpreter Commands
+
+| Command | Description |
+|---|---|
+| `sysinfo` | Display system information |
+| `getuid` | Display current user |
+| `ps` | Display running processes |
+| `ipconfig` | Display network information |
+| `pwd` | Display current directory |
+| `ls` | List files and directories |
+| `help` | Display available commands |
+| `background` | Background the current session |
+
+## 🛠️ Practical Commands
+
+### 1. Open Kali Linux Terminal
+
+Start Metasploit Framework:
+
+```bash
+msfconsole
+```
+
+### 2. Search Meterpreter Payloads
+
+```bash
+search type:payload meterpreter
+```
+
+### 3. Explore Available Commands
+
+```bash
+help
+```
+![Study Meterpreter](09-meterpreter-reference.png)
+
+# 🔍 Step 10: Study Post-Exploitation
+
+## 📌 Description
+
+I studied post-exploitation concepts and learned how system information, running processes, network configuration, user accounts, file systems, and session information are analyzed during authorized security testing.
+
+## 🎯 Objectives
+
+- Understand system information analysis.
+- Study running processes.
+- Analyze network configuration.
+- Understand user account information.
+- Study file-system analysis.
+- Learn session management.
+
+## 📚 Topics Studied
+
+### 1. System Information Analysis
+Understanding operating system details, hostname, and kernel version.
+
+### 2. Running Process Analysis
+Understanding currently running processes and system activities.
+
+### 3. Network Configuration Analysis
+Understanding IP addresses, network interfaces, and routing information.
+
+### 4. User Account Information
+Understanding system users and account details.
+
+### 5. File-System Analysis
+Understanding files, directories, and disk usage.
+
+### 6. Session Management
+Understanding active sessions, session status, and session handling.
+
+## 💻 Practical Commands
+
+### 1. System Information
+
+```bash
+uname -a
+hostname
+```
+
+### 2. Running Processes
+
+```bash
+ps aux
+top
+```
+
+### 3. Network Information
+```bash
+ifconfig
+netstat -rn
+```
+
+### 4. User Information
+
+```bash
+whoami
+id
+```
+
+### 5. File-System Information
+
+```bash
+pwd
+ls -la
+df -h
+```
+
+### Post-Exploitation Analysis
+
+![Study Post-Exploitation](10-post-exploitation-analysis.png)
